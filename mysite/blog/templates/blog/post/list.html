@@ -8,7 +8,13 @@
     <h1>My Blog</h1>
         {% if tag %}
             <h2>Posts tagged with "{{ tag.name }}"</h2>
+            <a href="{% url 'blog:post_list' %}" style="color:red;">
+            Back to main page
+            </a>
         {% endif %}
+        <a href="{% url 'blog:post_search' %}" style="color:red;">
+            Search posts
+        </a>
         {% for post in posts %}
             <h2>
                 <a href="{{ post.get_absolute_url }}">
